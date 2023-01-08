@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MotionLayout Chameleon Cards</string>
+    <string name="upcoming_events"><b>Upcoming Events</b></string>
+    <string name="monday">Monday 17</string>
+    <string name="tuesday">Tue 18</string>
+    <string name="wednesday">Wed 19</string>
+    <string name="name"><b>Lily\'s Stage Play</b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="interested"><b>Interested</b></string>
+    <string name="interested_in_attending"><b>Interested In Attending</b></string>
+    <string name="utah"><b>Cambridgeshire, Utah</b></string>
+    <string name="interested_events"><b>Interested Events</b></string>
+    <string name="interested_events_desc">Events that you have shown interest in.</string>
+    <string name="date">24th May  -  9:45 PM</string>
+    <string name="ben_howard"><b>Ben Howard Crossroad</b></string>
+    <string name="blackpink"><b>Blackpink Concert</b></string>
+    <string name="event_desc"><b>Event Description</b></string>
+    <string name="event_details"><b>Event Details</b></string>
+    <string name="event_desc_content"><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</b></string>
+</resources>
