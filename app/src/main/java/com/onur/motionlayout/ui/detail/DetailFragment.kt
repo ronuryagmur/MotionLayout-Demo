@@ -33,11 +33,11 @@ class DetailFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        sharedElementEnterTransition = MaterialContainerTransform().apply {
-            drawingViewId = R.id.nav_host_fragment
-            duration = 600
-            scrimColor = Color.TRANSPARENT
-        }
+//        sharedElementEnterTransition = MaterialContainerTransform().apply {
+//            drawingViewId = R.id.nav_host_fragment
+//            duration = 600
+//            scrimColor = Color.TRANSPARENT
+//        }
     }
 
     override fun onCreateView(

@@ -120,5 +120,18 @@
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="@+id/fl_top_layout"
             android:layout_marginTop="20dp" />
+        <Constraint
+            android:layout_height="160dp"
+            android:layout_width="match_parent"
+            android:id="@+id/cl_interested_events"
+            motion:layout_constraintTop_toBottomOf="parent" />
+        <Constraint
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="50dp"
+            motion:layout_constraintTop_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            android:id="@+id/iv_interested_event_icon" />
     </ConstraintSet>
 </MotionScene>

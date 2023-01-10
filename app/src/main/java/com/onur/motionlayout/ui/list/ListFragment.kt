@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,7 @@ class ListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
     private var eventAdapter: EventAdapter? = null
-    private val vm: ListViewModel by viewModels()
+    private val vm: ListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +35,10 @@ class ListFragment : Fragment() {
     private fun initObservables(){
         vm.snappedEventItemPosition.observe(viewLifecycleOwner, Observer {
             updateEventItems(it)
+        })
+
+        vm.onEventItemClicked.observe(viewLifecycleOwner, Observer {
+            Log.d("pluvia","kjfrag")
         })
     }
 
