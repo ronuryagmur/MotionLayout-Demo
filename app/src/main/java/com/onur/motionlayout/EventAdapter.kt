@@ -59,10 +59,9 @@ class EventAdapter(private val vm: ListViewModel) :
             binding.apply {
                 clEventItem.setOnClickListener {
 //                    mRecyclerView.smoothScrollToPosition(position)
-                    vm.setOnEventItemClicked(true)
 
-//                    val emailCardDetailTransitionName = "eventDetailTransition"
-//                    val extras = FragmentNavigatorExtras(clEventItem to emailCardDetailTransitionName)
+                    val emailCardDetailTransitionName = "eventDetailTransition"
+                    val extras = FragmentNavigatorExtras(clEventItem to emailCardDetailTransitionName)
 //                    val directions = HomeFragmentDirections.actionHomeFragmentToEmailFragment(email.id)
                     it.findNavController().navigate(R.id.action_listFragment_to_detailFragment)
                 }

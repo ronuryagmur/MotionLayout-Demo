@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="500">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@id/tv_event_desc"
+               motion:framePosition="95"
+               android:alpha="0.2" />
+           <KeyAttribute
+               motion:motionTarget="@+id/tv_event_desc_content"
+               motion:framePosition="95"
+               android:alpha="0.2" />
+           <KeyAttribute
+               motion:motionTarget="@+id/tv_event_details"
+               motion:framePosition="95"
+               android:alpha="0.2" />
+           <KeyAttribute
+               motion:motionTarget="@+id/event_item_bottom_layout"
+               motion:framePosition="80"
+               android:alpha="0.2" />
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/frameLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"/>
+        <Constraint
+            android:id="@+id/tv_event_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="60dp"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/tv_event_desc_content"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_event_desc"
+            motion:layout_constraintStart_toStartOf="@+id/tv_event_desc"
+            android:layout_marginTop="20dp"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/tv_event_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_event_desc_content"
+            motion:layout_constraintStart_toStartOf="@+id/tv_event_desc_content"
+            android:layout_marginTop="25dp"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/event_item_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="20dp"
+            android:alpha="0" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/frameLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"/>
+        <Constraint
+            android:id="@+id/tv_event_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="60dp"
+            android:alpha="1" />
+        <Constraint
+            android:id="@+id/tv_event_desc_content"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_event_desc"
+            motion:layout_constraintStart_toStartOf="@+id/tv_event_desc"
+            android:layout_marginTop="20dp"
+            android:alpha="1" />
+        <Constraint
+            android:id="@+id/tv_event_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_event_desc_content"
+            motion:layout_constraintStart_toStartOf="@+id/tv_event_desc_content"
+            android:layout_marginTop="25dp"
+            android:alpha="1" />
+    </ConstraintSet>
+</MotionScene>

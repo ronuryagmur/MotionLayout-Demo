@@ -1,43 +1,26 @@
 package com.onur.motionlayout.ui.detail
 
-import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.TintTypedArray.obtainStyledAttributes
-import androidx.core.content.res.use
-import com.google.android.material.transition.MaterialContainerTransform
-import com.onur.motionlayout.R
+import androidx.activity.addCallback
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.onur.motionlayout.databinding.FragmentDetailBinding
+import com.pluvia.material.chameleoncards.ui.list.ListViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class DetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class DetailFragment : Fragment(), MotionLayout.TransitionListener {
+    private var _binding: FragmentDetailBinding? = null
+    private val vm: ListViewModel by activityViewModels()
+    private var flag = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-
-//        sharedElementEnterTransition = MaterialContainerTransform().apply {
-//            drawingViewId = R.id.nav_host_fragment
-//            duration = 600
-//            scrimColor = Color.TRANSPARENT
-//        }
+        flag = false
     }
 
     override fun onCreateView(
@@ -45,26 +28,51 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
+        _binding!!.detailMotionLayout.addTransitionListener(this)
+        vm.setOnEventItemClicked(true)
+
+        requireActivity().onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner) {
+                _binding!!.detailMotionLayout.transitionToStart()
+                _binding!!.constraintLayout2.transitionToStart()
+                flag = true
+            }
+        return _binding!!.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d("motionProgress", _binding!!.detailMotionLayout.progress.toString())
+        _binding!!.detailMotionLayout.transitionToEnd()
+        _binding!!.constraintLayout2.transitionToEnd()
+    }
+
+    override fun onTransitionStarted(motionLayout: MotionLayout?, startId: Int, endId: Int) {
+        Log.d("tag","onTransitionStarted")
+    }
+
+    override fun onTransitionChange(
+        motionLayout: MotionLayout?,
+        startId: Int,
+        endId: Int,
+        progress: Float
+    ) {
+        Log.d("tag","onTransitionChange")
+    }
+
+    override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+        if (flag){
+            findNavController().navigateUp()
+        }
+    }
+
+    override fun onTransitionTrigger(
+        motionLayout: MotionLayout?,
+        triggerId: Int,
+        positive: Boolean,
+        progress: Float
+    ) {
+        Log.d("tag","onTransitionTrigger")
     }
 }

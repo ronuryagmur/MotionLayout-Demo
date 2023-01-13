@@ -6,7 +6,7 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="600"
+        motion:duration="500"
         motion:pathMotionArc="startVertical"
         motion:motionInterpolator="easeInOut">
        <KeyFrameSet>
@@ -23,7 +23,6 @@
                motion:framePosition="50"
                android:alpha="0" />
        </KeyFrameSet>
-        <OnClick />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
